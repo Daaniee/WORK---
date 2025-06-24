@@ -1,0 +1,180 @@
+body{
+    margin: 0px;
+    font-family: sans-serif;
+}
+.head{
+    height: 350px;
+    width: auto;
+    background: linear-gradient(rgba(0, 0, 0, .83), rgba(0, 0, 0, .852)), url(head_backdrop.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-family: sans-serif;
+    
+}
+#logo{
+    height: 100px;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+#royal{
+    
+    font-size: 1.8rem;
+    color: #dbdbdb;
+    margin: 20px 0px 0px 0px;
+    letter-spacing: 0.2px;
+}
+.address{
+    font-size: .95rem;
+    color: #c2c2c2;
+    font-weight: bold;
+    margin: 0px;
+}
+#bbb{
+    height: 25px;
+}
+.zomato, .swiggy{
+    padding: 5px 15px 5px 15px;
+    border-radius: 20px;
+    border-width: 1px;
+    background-color: white;
+}
+.zomato{
+    margin: 0px 10px 30px 0px;
+}
+#browse{
+    font-size: 28.8px;
+    font-family: sans-serif;
+    margin: 30px 0px 10px 0px;
+    padding: 10px 15px 10px 15px;
+}
+#img{
+    padding: 20px 15px 20px 15px;
+    background-color: white;
+    border: 0px solid white;
+    margin-right: -3px;
+    
+    
+}
+#menu{
+    height: 14.2vw;
+    border-radius: 7px;
+}
+.names{
+    font-family: sans-serif;
+    color: #3e3e3e;
+    margin-top: 10px;
+    font-size: 15.2px;
+}
+.item-image{
+    margin: 20px 30px 20px 0px;
+    height: 70px;
+    border-radius: 7px;
+}
+.food-list{
+    border-top: 1px dashed rgb(220, 220, 220);
+    margin: 0px 0px 0px 54px;
+    display: inline-flex;
+    width: 601.02px;
+}
+.item-name-container{
+    margin-top: 25px;
+    width: 150px;
+}
+.item-price{
+    font-size: 18px;
+    margin: 50px 0px 0px 292px;
+}
+.ahhhh{
+    display: inline-flex;
+}
+.foods{
+    margin-top: 30px;
+}
+.category-name{
+    font-size: 14px;
+    color: #cb9b2f;
+}
+.item-name{
+    font-size: 17px;
+}
+.footer{
+    background-color: black;
+    margin-top: 20px;
+}
+#gallery{
+    color: white;
+    text-align: center;
+    padding: 40px 0px 40px 0px;
+    margin: 20px 0px 10px 0px;
+}
+.gallery-image{
+    width: 306px;
+    height: 240px;
+    border-radius: 4px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+}
+.gallery-image-container{
+    margin-left: 43px;
+}
+.foot{
+    text-align: center;
+    width: 453px;
+}
+.open{
+    color: #e1e1e1;
+    font-size: 19.2px;
+    padding: 20px 0px 10px 0px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.time{
+    color: #a6a6a6;
+    font-size: 17px;
+}
+.direction{
+    text-align: center;
+    margin-left: 91px;
+}
+.map{
+    width: 272px;
+    height: 192px;
+    border-radius: 4px;
+}
+.get{
+    color: #e1e1e1;
+    font-size: 19.5px;
+    padding: 20px 0px 10px 0px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.info{
+    display: inline-flex;
+}
+.reserve{
+    color: #E1e1e1;
+    font-size: 19.2px;
+    padding: 20px 0px 10px 0px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.reservation-logo{
+    height: 40px;
+    padding: 7px;
+}
+#res{
+    display: inline-flex;
+}
+.reservation{
+    text-align: center;
+    margin-left: 135px;
+}
+#copyright{
+    margin-top: 60px;
+    margin-bottom: 0px;
+    color: #858585;
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 15px;
+}

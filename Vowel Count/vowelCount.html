@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Counter</title>
+    <link rel="stylesheet" href="vowels.css">
+</head>
+<body>
+    <form action="" method="get"></form>
+        <label for="">COMMENT:</label>
+        <input type="text" id="comment"> <br>
+        <div>
+            <label for="A">A:</label>  <span><p id="A"></p></span><br><br>
+            <label for="E">E:</label>  <span><p id="E"></p></span><br><br>
+            <label for="I">I:</label>  <span><p id="I"></p></span><br><br>
+            <label for="O">O:</label>  <span><p id="O"></p></span><br><br>
+            <label for="U">U:</label>  <span><p id="U"></p></span><br><br>
+        </div>
+        <input type="submit" onclick="aCount(),eCount(),iCount(),oCount(),uCount()" value="SUBMIT">
+    </form>
+
+
+
+
+    <script>
+        function aCount(str){
+            value = document.getElementById("comment").value;
+            const A = "aA";
+            let count = 0;
+            for(let char of value){
+                if(A.includes(char)){
+                    count++;
+                }
+    
+            }
+            return document.getElementById("A").innerHTML = count;
+        }
+        function eCount(str){
+            value = document.getElementById("comment").value;
+            const E = "Ee";
+            let count = 0;
+            for(let char of value){
+                if(E.includes(char)){
+                    count++;
+                }
+    
+            }
+            return document.getElementById("E").innerHTML = count;
+        }
+        function iCount(str){
+            value = document.getElementById("comment").value;
+            const I = "Ii";
+            let count = 0;
+            for(let char of value){
+                if(I.includes(char)){
+                    count++;
+                }
+    
+            }
+            return document.getElementById("I").innerHTML = count;
+        }
+        function oCount(str){
+            value = document.getElementById("comment").value;
+            const O = "Oo";
+            let count = 0;
+            for(let char of value){
+                if(O.includes(char)){
+                    count++;
+                }
+    
+            }
+            return document.getElementById("O").innerHTML = count;
+        }
+        function uCount(str){
+            value = document.getElementById("comment").value;
+            const U = "Uu";
+            let count = 0;
+            for(let char of value){
+                if(U.includes(char)){
+                    count++;
+                }
+    
+            }
+            return document.getElementById("U").innerHTML = count;
+        }
+        function bColor(){
+            var aValue = document.getElementById("A").innerHTML;
+            var eValue = document.getElementById("E").innerHTML;
+            var iValue = document.getElementById("I").innerHTML;
+            var oValue = document.getElementById("O").innerHTML;
+            var uValue = document.getElementById("U").innerHTML;
+
+            switch(aValue){
+             case aValue 
+            }
+        }
+    </script>
+</body>
+</html>

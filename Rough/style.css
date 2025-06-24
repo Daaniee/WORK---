@@ -1,0 +1,49 @@
+a:link
+{
+    color: aquamarine;
+}
+a:hover
+{
+    color:red;
+    text-decoration: underline;
+    text-decoration-color: #ffff;
+}
+a:visited
+{
+    color: green;
+}
+body
+{
+    background-image:url();
+}
+
+
+table, th,tr,td 
+{
+border: 2px solid black;
+border-collapse: collapse;
+
+}
+th,td
+{
+padding: 40px;
+}
+table#CR7 
+{
+    background-color: aquamarine;
+
+}
+table#CR7 th
+{
+    color: brown;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
+}
+
+.cities {
+background-color:black;
+color:white;
+margin:20px;
+padding:20px;
+}	
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danny</title>
+    <link rel="icon"  type="image/x-icon"  href="Arsenal_10 copy.jpg"
+</head>
+<body>
+    <img src="Lunch.jpg" alt="https://images.unsplash.com/photo-1517870662726-c1d98ee36250?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" id="Lunch" usemap="#Lunch"  width="700px"   height="500px">
+    <map name="Lunch">
+        <area shape="rect" coords="252,195,446,395" alt="plate" href="https://www.dictionary.com/browse/cup#:~:text=a%20unit%20of%20capacity%2C%20equal,and%20various%20ingredients%3A%20claret%20cup.">
+    </map>
+
+    <script>
+        const Lunch = document.getElementById('Lunch');
+    
+        Lunch.addEventListener('click', function(event) {
+          const x = event.clientX - Lunch.offsetLeft;
+          const y = event.clientY - Lunch.offsetTop;
+          console.log(`X: ${x}, Y: ${y}`);
+        });
+      </script>
+   
+      
+</body>
+</html>

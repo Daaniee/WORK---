@@ -1,0 +1,27 @@
+.head{
+    text-align: center;
+    padding: 40px 0px 40px 0px;
+    background-color: rgb(141, 141, 141);
+}
+#header{
+    padding: 20px 30px 20px 30px;
+    margin: 0px 100px 0px 100px;
+    border-radius: 10px;
+    border-width: 1px;
+}
+.body{
+    text-align: center;
+    margin-top: 50px;
+    padding: 30px 0px 0px 0px;
+    background-color: rgb(39, 39, 39);
+}
+#body-button{
+    padding: 20px 30px 20px 30px;
+    margin: 40px 0px 20px 0px;
+    border-radius: 20px;
+    border-width: 1px;
+}
+button:hover{
+    cursor: pointer;
+    background-color: aquamarine;
+}

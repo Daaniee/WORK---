@@ -1,0 +1,397 @@
+nav{
+    position: fixed;
+    top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 9px ;
+    box-shadow: 0px 2px 1px rgb(230, 223, 223);
+}
+#goat,#one{
+    text-decoration: none;
+    color: #3d4f60;
+    padding-right: 25px;
+}
+body{
+    /* margin-left: 93px; */
+    background-color: #f2f7f8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#sap{
+    vertical-align: middle;
+    color: #3d4f60;
+    height: 35px;
+    width: 180px;
+    padding-right: 20px;
+}
+
+#tin,#glock{
+    padding: 19px 22px 15px 22px;
+    border-radius: 12px;
+    font-size: 16px;
+    border: 1px solid #122231;
+    font-family: Arial, Helvetica, sans-serif ;
+    margin-top: 50px;
+    
+}
+#goat{
+    padding-right: 312px;
+}
+#tin{
+    width: 96px;
+    background-color: white;
+    color: #0c1825;
+}
+#glock{
+    margin-left: 4px;
+    color: white;
+    background-color:#122231;
+}
+#eight{
+    text-align: left;
+    padding-top: 242px;
+    
+    margin-left: 3px;
+}
+.section1{
+    text-align: left;
+    padding-top: 242px;
+    
+    margin-left: 86px;
+}
+.navigator {
+    
+    background-color: white;
+    width: 100%;
+   
+    padding: 50px 32px 25px 32px;
+    margin-top: -9px;
+}
+
+.section2{
+
+    text-align: left;
+    padding-top: 242px;
+    
+    margin-left: 86px;
+
+}
+h1{
+    font-size: 48px;
+    font-family: Arial;
+    width: 420px;
+    color: #122231;
+}
+#tint{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 32px;
+    width: 390px;
+    color: #3d4f60;
+}
+#lap{
+    width:20px;
+    
+
+}
+#tap{
+    background-color: #122231;
+    color: white;
+    padding: 18px 25px;
+    border-radius: 12px;
+    border-width: 1px;
+    font: 16px arial;
+    
+}
+#tip{
+    background-color: #122231;
+    color: white;
+    margin-left: 12px;
+    padding: 18px 27px;
+    border-radius: 12px;
+    border-width: 1px;
+    font: 16px arial;
+}
+#leg{
+    color: #3d4f60;
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 27.2px;
+    margin-left: 120px;
+}
+#ten{
+    font-size: 24px;
+    line-height: 33px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #122231;
+    margin-top: 250px;
+    margin-left: 120px;
+}
+#two{
+    text-decoration: none;
+    color:#122231;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 60px;
+}
+h3{
+    font-size: 48px;
+    color: #122231;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    max-width: 570px;
+    line-height: 60px;
+    margin-top: 200px;
+}
+#three{
+    color: #122231;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    max-width: 570px;
+    font-size: 24px;
+    line-height: 40px;
+}
+.neck{
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 10px 30px 30px;
+    width: 520px ;
+    height: 420px;
+    float: right;
+    margin-top: -369px;
+    margin-right: 70px;
+    color: #003399;
+}
+.neck:hover{
+    color: white;
+    background-color: #003399;
+}
+#ink:hover{
+    color: white;
+}
+.low{
+    font-size: 36px;
+   
+    line-height: 10px;
+}
+#ink{
+    font-size: 20px;
+    line-height: 37px;
+   
+}
+a{
+    text-decoration: none;
+}
+.container{
+    color: white;
+    padding-top: 20px;
+}
+.container2{
+    margin-left: px;
+    
+}
+#high{
+    font-size: 36px;
+   
+    line-height: 10px;
+}
+.head{
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 10px 30px 30px;
+    width: 520px ;
+    height: 420px;
+    float: left;
+    margin-top:140px ;
+    color: #3296ff;
+}
+.book{
+    font-size: 20px;
+    line-height: 37px;
+}
+.head:hover{
+    background-color: #3296ff;
+    color: white;
+}
+.man{
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 10px 30px 30px;
+    width: 520px ;
+    height: 420px;
+    float: right;
+    color: #069b40;
+    margin-top: 30px;
+    margin-right: 70px;
+}
+.man:hover{
+    background-color: #069b40;
+    color: white;
+}
+.father{
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 10px 30px 30px;
+    width: 520px ;
+    height: 420px;
+    float: left;
+    color: #e5288e;
+    margin-top: 30px;
+}
+.father:hover{
+    background-color: #e5288e;
+    color: white;
+}
+.rice{
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px 10px 30px 30px;
+    width: 520px ;
+    height: 420px;
+    float: right;
+    color: #0c1825;
+    margin-top: 30px;
+    margin-right: 70px;
+}
+.rice:hover{
+    background-color: #0c1825;
+    color: white;
+}
+.woman{
+    font-size: 36px;
+   
+    line-height: 10px;
+}
+.baby{
+    font-size: 20px;
+    line-height: 37px;
+}
+.mother{
+    font-size: 36px;
+   
+    line-height: 10px;
+}
+.children{
+    font-size: 20px;
+    line-height: 37px;
+}
+.beans{
+    font-size: 36px;
+   
+    line-height: 10px;
+}
+.stew{
+    font-size: 20px;
+    line-height: 37px;
+}
+.section3{
+    text-align: center;
+    margin-top: 1270px;
+    background-color: white;
+    padding: 160px 20px 160px 20px;
+}
+.corn{
+    font-size: 51px;
+    color: #122231;
+    line-height: 10px;
+}
+.maize{
+   font-size: 24px;
+   color: #3d4f60;
+   letter-spacing: 1px;
+}
+.paul{
+    background-color: #7913e5;
+    color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 64px;
+    text-align: left;
+    border-radius: 30px;
+    height: 350px;
+    line-height: 29px;
+    margin-top: 70px;
+}
+.lala{
+    font-size: 36px;
+    line-height: 50px;
+
+}
+.lolo{
+    font-size: 20px;
+    color: #fed6f1;
+    letter-spacing: 1px;
+}
+.wewe{
+    margin-top: 90px;
+    color: white;
+    font-size: 16px;
+}
+.meme{
+    color: white;
+    font-size: 16px;
+}
+.section4{
+    text-align: center;
+    margin-top: 180px;
+}
+.mumu{
+    font-size: 48px;
+    color: #122231;
+    line-height: 20px;
+}
+.lele{
+    font-size: 24px;
+    color: #3d4f60;
+    line-height: 37px;
+}
+.emma{
+    background-color: white;
+    border-radius: 30px;
+    padding: 280px 50px 100px 50px ;
+    margin-left: 260px;
+    margin-right: 260px;
+    margin-top: 100px;
+}
+.offlineIcon{
+    height: 24px;
+    width: 24px;
+    margin-right: 20px;
+}
+.emman{
+    font: 24px sans-serif;
+    color: #1f1f1f;
+}
+.nono{
+    text-align: left;
+    margin-top: 220px;
+    margin-left: 600px;
+    font-size: 33px;
+    color: #122231;
+}
+.popo{
+    border: 1px solid #ddd;
+    padding: 17px 22px;
+    border-radius: 12px ;
+    color: #122231;
+    margin-left: 150px ;
+    font-size: 12.82px;
+}
+.toto{
+    border: 1px solid #ddd;
+    padding: 17px 22px;
+    border-radius: 12px;
+    color: #122231;
+    font-size: 12.82px;
+    margin-left: 12px;
+}
+.featured{
+    background: linear-gradient(180deg,#f2f8f4,#fff 33.01%);
+    text-align: center;
+    margin-top: 350px;
+}
+.fifi{
+    font-size: 33px;
+}

@@ -1,0 +1,50 @@
+h2{
+    text-align: center;
+    font: 32px system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+h3{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 30px 0px 20px 100px;
+}
+div{
+    margin:10px 0px 5px 100px;
+}
+.milo, .milk, .spagg, .count{
+    display: inline-flex;
+}
+#name1, #name2, #name3{
+    border: 1px solid black;
+    padding: 20px 300px 20px 10px;
+    width: 150px;
+}
+.count{
+    border: 1px solid black;
+    width: 100px;
+    height:50px;
+    padding: 0px 10px 0px 10px;
+}
+#list{
+    border: 1px solid black;
+    padding: 20px 300px 20px 10px;
+    width: 150px;
+}
+button{
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 0px;
+    height: 60px;
+    margin-top: 16px;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.15);
+}
+button:hover{
+    cursor: pointer;
+    border: 1px solid black;
+}
+.x{
+    background-color: red;
+    color: white;
+}
+.add{
+    background-color: blueviolet;
+    color: white;
+}

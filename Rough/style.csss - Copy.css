@@ -1,0 +1,25 @@
+header {
+    background-color: cornflowerblue;
+    text-align: center;
+    color: cyan;
+    padding: 20px;
+}
+nav {
+    background-color: brown;
+    float: left;
+    padding: 30px;
+    line-height: 100px;
+}
+section {
+    float: left;
+    padding: 10px;
+    width: 400px;
+    height: 200px;
+
+}
+footer {
+    background-color: cornflowerblue;
+    color:cyan ;
+    clear:both;
+    text-align: center;
+}
