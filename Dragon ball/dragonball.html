@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DragonBallZAPI</title>
+    <link rel="stylesheet" href="dragonball.css">
+</head>
+<body>
+    <img src="/images/head image.jpg" id="headImage" alt="">
+
+    <div id="content"> 
+        
+    </div>
+
+    <div id="pagination">
+        <button id="steps" onclick="previous()"><<</button>
+        <button data-page="1" class="pages" onclick="fetchData(1)">1</button>
+        <button data-page="2" class="pages" onclick="fetchData(2)">2</button>
+        <button data-page="3" class="pages" onclick="fetchData(3)">3</button>
+        <button data-page="4" class="pages" onclick="fetchData(4)">4</button>
+        <button data-page="5" class="pages" onclick="fetchData(5)">5</button>
+        <button data-page="6" class="pages" onclick="fetchData(6)">6</button>
+        <button id="steps" onclick="next()">>></button>
+    </div>
+
+
+    <script src="dragonball.js"></script>
+</body>
+</html>

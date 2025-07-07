@@ -1,0 +1,85 @@
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#headImage{
+    margin: auto;
+    width: 65vh;
+    height: 35vh;
+    display: block;
+}
+#sprites{
+    width: 95%;
+    height: 95%;
+    object-position: center center;
+    object-fit: contain;
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+}
+#sprites:hover{
+    cursor: pointer;
+    height: 110%;
+    width: 110%;
+}
+#image{
+    margin: 0vh 10vh 0vh 0vh;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.596);
+    border-radius: 2vh;
+    width: 40vh;
+    height:70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#elements{
+    display: flex;
+    margin: 10vh 0vh 0vh 0vh;
+    border-radius: 2vh;
+}
+p{
+    margin: 2vh 0vh 2vh 0vh;
+}
+#info{
+    border-radius: 2vh;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.596);
+    width: 50vh;
+    height: 40vh;
+    padding: 4vh;
+}
+#elements:nth-child(odd) {
+  align-self: flex-start;
+  background-color: #e0f1ff;
+}
+
+#elements:nth-child(even) {
+  align-self: flex-end;
+  background-color: #ffe5e5;
+}
+#content{
+    display: flex;
+    flex-direction: column;
+    margin: 0vh 8vh 0vh 8vh;
+}
+.pages{
+    width: 10vh;
+    height: 7vh;
+    background-color: white;
+    border-radius: 2vh;
+    border: 0px solid black;
+}
+#steps{
+    height: 7vh;
+    background-color: white;
+    border: 0px solid black;
+    cursor: pointer;
+}
+.pages:hover{
+    cursor: pointer;
+}
+.selected{
+    background-color: #ffe5e5;
+}
+#pagination{
+    display: flex;
+    gap: 5vh;
+    justify-content: center;
+    margin: 5vh 0vh 10vh 0vh;
+}
