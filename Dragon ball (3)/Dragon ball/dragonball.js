@@ -73,4 +73,41 @@ window.addEventListener("DOMContentLoaded", () => {
     fetchData(1);
 });
 
+// var subdivs = document.querySelectorAll("blahh");
 
+// subdivs.forEach(div => {
+//     div.addEventListener("click", ()=> {
+//         subdivs.forEach(d => d.classList.remove("selected"))
+//         div.classList.add("Selected")
+//     })
+// })
+
+// if(subdivs.length > 0){
+//     subdivs[0].classList.add("selected")
+// };
+
+// let currenPage = 1;
+
+// function fetching(theData){
+//     currenPage = theData;
+//     var views = document.getElementById("blashhh");
+//     views = "";
+//     fetch(`https://dragonball-api.com/api/characters?page=${theData}&limit=10`)
+
+//     .then((response) => {
+//         if(!response.ok){
+//             throw new Error("error loading your shit")
+//         }
+//         return response.json()
+//     })
+
+//     .then((data)=>{
+//         var dataValues = data.items;
+//         for(specific of dataValues){
+//             views += `
+            
+//             `
+//         }
+//     })
+
+// }
