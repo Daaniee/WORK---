@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Advice</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: lightblue;
+        }
+
+        #allContent {
+            display: flex;
+            width: 50vw;
+            margin: 10vh auto;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        #landingPage {
+            border-radius: 4vh;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.596);
+            width: 100%;
+            height: 30vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Active state */
+        #landingPage.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="allContent">
+        <div id="landingPage">
+            <p>Hello dear valued Customer, <br>
+            We want to help you find the right products and insurance cover in seconds. <br>
+            Are You Ready?</p>
+            <button>Let's Get Started</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const landingPage = document.getElementById('landingPage');
+
+            // Delay ensures browser paints initial state before transition
+            setTimeout(() => {
+                landingPage.classList.add('show');
+            }, 50);
+        };
+    </script>
+</body>
+</html>
