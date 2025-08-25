@@ -1,18 +1,13 @@
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StudentReg.Models
+[Table("StudentData")]
+public class Student
 {
-    public class Student
-    {
-        public int Id { get; set; }
-        [Url]
-        public string PassportImage { get; set; }
-        [StringLength(20)]
-        public string Name { get; set; }
-        [Range(11, 100)]
-        public int Age { get; set; }
-        public string AdmissionNumber { get; set; }
-        public string Gender { get; set; }
-        public string Class { get; set; }
-    }
+    public int Id { get; set; }
+    public string PassportImage { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public string AdmissionNo { get; set; }
+    public string Gender { get; set; }
+    public string Class { get; set; }
 }

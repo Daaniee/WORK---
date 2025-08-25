@@ -10,12 +10,18 @@ namespace StudentReg.Controllers
     [Route("api/[controller]")]
     public class RegistrationController : ControllerBase
     {
+        ApplicationDbContext db;
+        public RegistrationController(ApplicationDbContext db_)
+        {
+            db = db_;
+        }
         [HttpGet("all", Name = "GetAllStudents")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<IEnumerable<Student>> GetStudents()
+        public IEnumerable<Student> GetStudents()
         {
-            return Ok(StudentRepository.Students);
+           List<Student> studentList = db.Student.ToList();
+            return studentList;
         }
 
         [HttpGet("{id}", Name = "GetStudentById")]
@@ -29,7 +35,7 @@ namespace StudentReg.Controllers
             {   // bad 400 Client Error
                 return BadRequest("Invalid student ID.");
             }
-            var student = StudentRepository.Students.FirstOrDefault(s => s.Id == id);
+            var student = db.Student.FirstOrDefault(s => s.Id == id);
             if (student == null)
             {
                 return NotFound();
@@ -44,8 +50,9 @@ namespace StudentReg.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public ActionResult<Student> SearchStudentsByName(string name)
         {
-            var student = StudentRepository.Students
-                .FirstOrDefault(s => s.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+            var student = db.Student
+                .Where(s => s.Name.ToLower().Contains(name.ToLower()))
+                .FirstOrDefault();
 
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -70,13 +77,14 @@ namespace StudentReg.Controllers
             {   // bad 400 Client Error
                 return BadRequest("Invalid student ID.");
             }
-            if (!StudentRepository.Students.Any(n => n.Id == id))
+            if (!db.Student.Any(n => n.Id == id))
             {   // Not Found 404 Client Error
                 return NotFound($"Student with ID {id} not found.");
             }
-            var student = StudentRepository.Students.Where(n => n.Id == id).FirstOrDefault();
+            var student = db.Student.Where(n => n.Id == id).FirstOrDefault();
 
-            StudentRepository.Students.Remove(student);
+            db.Student.Remove(student);
+            db.SaveChanges();
             return Ok(true);
         }
 
@@ -93,17 +101,20 @@ namespace StudentReg.Controllers
                 return BadRequest("Invalid student data.");
             }
 
-            var existingStudent = StudentRepository.Students.FirstOrDefault(n => n.Id == id);
+            var existingStudent = db.Student.FirstOrDefault(n => n.Id == id);
             if (existingStudent == null)
             {
                 return NotFound($"Student with ID {id} not found.");
             }
 
             existingStudent.Name = model.Name;
+            existingStudent.PassportImage = model.PassportImage;
             existingStudent.Age = model.Age;
-            existingStudent.AdmissionNumber = model.AdmissionNumber;
+            existingStudent.AdmissionNo = model.AdmissionNo;
             existingStudent.Gender = model.Gender;
             existingStudent.Class = model.Class;
+
+            db.SaveChanges();
 
             return NoContent();
         }
@@ -121,7 +132,7 @@ namespace StudentReg.Controllers
                 return BadRequest("Invalid patch document.");
             }
 
-            var existingStudent = StudentRepository.Students.FirstOrDefault(n => n.Id == id);
+            var existingStudent = db.Student.FirstOrDefault(n => n.Id == id);
             if (existingStudent == null)
             {
                 return NotFound($"Student with ID {id} not found.");
@@ -130,9 +141,10 @@ namespace StudentReg.Controllers
             var student = new Student
             {
                 Id = existingStudent.Id,
+                PassportImage = existingStudent.PassportImage,
                 Name = existingStudent.Name,
                 Age = existingStudent.Age,
-                AdmissionNumber = existingStudent.AdmissionNumber,
+                AdmissionNo = existingStudent.AdmissionNo,
                 Gender = existingStudent.Gender,
                 Class = existingStudent.Class
             };
@@ -144,8 +156,9 @@ namespace StudentReg.Controllers
             }
 
             existingStudent.Name = student.Name;
+            existingStudent.PassportImage = student.PassportImage;
             existingStudent.Age = student.Age;
-            existingStudent.AdmissionNumber = student.AdmissionNumber;
+            existingStudent.AdmissionNo = student.AdmissionNo;
             existingStudent.Gender = student.Gender;
             existingStudent.Class = student.Class;
 
@@ -168,16 +181,18 @@ namespace StudentReg.Controllers
 
             var student = new Student
             {
-                Id = StudentRepository.Students.Max(n => n.Id) + 1,
+                Id = db.Student.Max(n => n.Id) + 1,
+                PassportImage = model.PassportImage,
                 Name = model.Name,
                 Age = model.Age,
-                AdmissionNumber = model.AdmissionNumber,
+                AdmissionNo = model.AdmissionNo,
                 Gender = model.Gender,
                 Class = model.Class
             };
 
-            StudentRepository.Students.Add(student);
+            db.Student.Add(student);
             model.Id = student.Id;
+            db.SaveChanges();
             return CreatedAtRoute("GetStudentById", new { id = model.Id }, model);
         }
     }
