@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.JsonPatch;
 
 
 
+
 namespace StudentReg.Controllers
 {
     [ApiController]
@@ -120,52 +121,38 @@ namespace StudentReg.Controllers
         }
 
         [HttpPatch]
-        [Route("Update/{id}")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult UpdatePartial(int id, [FromBody] JsonPatchDocument<Student> patchDocument)
-        {
-            if (patchDocument == null || id <= 0)
-            {
-                return BadRequest("Invalid patch document.");
-            }
+[Route("Update/{id}")]
+[ProducesResponseType(StatusCodes.Status204NoContent)]
+[ProducesResponseType(StatusCodes.Status400BadRequest)]
+[ProducesResponseType(StatusCodes.Status404NotFound)]
+[ProducesResponseType(StatusCodes.Status500InternalServerError)]
+public IActionResult UpdatePartial(int id, [FromBody] JsonPatchDocument<Student> patchDocument)
+{
+    if (patchDocument == null || id <= 0)
+    {
+        return BadRequest("Invalid patch document.");
+    }
 
-            var existingStudent = db.Student.FirstOrDefault(n => n.Id == id);
-            if (existingStudent == null)
-            {
-                return NotFound($"Student with ID {id} not found.");
-            }
+    var existingStudent = db.Student.FirstOrDefault(n => n.Id == id);
+    if (existingStudent == null)
+    {
+        return NotFound($"Student with ID {id} not found.");
+    }
 
-            var student = new Student
-            {
-                Id = existingStudent.Id,
-                PassportImage = existingStudent.PassportImage,
-                Name = existingStudent.Name,
-                Age = existingStudent.Age,
-                AdmissionNo = existingStudent.AdmissionNo,
-                Gender = existingStudent.Gender,
-                Class = existingStudent.Class
-            };
+    // ✅ Apply patch directly to the tracked entity
+    patchDocument.ApplyTo(existingStudent, ModelState);
 
-            patchDocument.ApplyTo(student, ModelState);
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+    if (!ModelState.IsValid)
+    {
+        return BadRequest(ModelState);
+    }
 
-            existingStudent.Name = student.Name;
-            existingStudent.PassportImage = student.PassportImage;
-            existingStudent.Age = student.Age;
-            existingStudent.AdmissionNo = student.AdmissionNo;
-            existingStudent.Gender = student.Gender;
-            existingStudent.Class = student.Class;
+    // ✅ Save changes to database
+    db.SaveChanges();
 
+    return NoContent();
+}
 
-
-            return NoContent();
-        }
 
         [HttpPost]
         [Route("Create")]
