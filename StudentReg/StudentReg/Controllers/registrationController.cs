@@ -159,11 +159,13 @@ public IActionResult UpdatePartial(int id, [FromBody] JsonPatchDocument<Student>
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<Student> CreateStudent([FromBody] Student model)
+        public string CreateStudent([FromBody] Student model)
         {
+            string result = string.Empty;
             if (model == null)
             {
-                return BadRequest("Invalid student data.");
+                 result = "Invalid student data.";
+                return result;
             }
 
             var student = new Student
@@ -179,8 +181,13 @@ public IActionResult UpdatePartial(int id, [FromBody] JsonPatchDocument<Student>
 
             db.Student.Add(student);
             model.Id = student.Id;
-            db.SaveChanges();
-            return CreatedAtRoute("GetStudentById", new { id = model.Id }, model);
+            int res = db.SaveChanges();
+            if (res >0) {
+               result = "Student created successfully."; 
+            }else{
+               result = "Failed to create student.";
+            }
+            return result;
         }
     }
 }
