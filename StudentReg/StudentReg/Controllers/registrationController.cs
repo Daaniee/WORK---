@@ -19,10 +19,11 @@ namespace StudentReg.Controllers
         [HttpGet("all", Name = "GetAllStudents")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IEnumerable<Student> GetStudents()
+        public ActionResult<List<Student>> GetStudents()
+
         {
-           List<Student> studentList = db.Student.ToList();
-            return studentList;
+            List<Student> studentList = db.Student.ToList();
+            return Ok(new ApiResponse(true, 200, "Students retrieved successfully.", studentList));
         }
 
         [HttpGet("{id}", Name = "GetStudentById")]
@@ -30,18 +31,18 @@ namespace StudentReg.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<Student> GetStudentById(int id)
+        public ActionResult<object> GetStudentById(int id)
         {
             if (id <= 0)
             {   // bad 400 Client Error
-                return BadRequest("Invalid student ID.");
+                return BadRequest(new ApiResponseNoData(false, 400, "Invalid student ID."));
             }
             var student = db.Student.FirstOrDefault(s => s.Id == id);
             if (student == null)
             {
-                return NotFound();
+                return NotFound(new ApiResponseNoData(false, 404, "Student not found."));
             }
-            return Ok(student);
+            return Ok(new ApiResponse(true, 200, "Student found.", student));
         }
 
         [HttpGet("search", Name = "SearchStudentsByName")]
@@ -49,7 +50,7 @@ namespace StudentReg.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<Student> SearchStudentsByName(string name)
+        public ActionResult<object> SearchStudentsByName(string name)
         {
             var student = db.Student
                 .Where(s => s.Name.ToLower().Contains(name.ToLower()))
@@ -57,14 +58,14 @@ namespace StudentReg.Controllers
 
             if (string.IsNullOrWhiteSpace(name))
             {
-                return BadRequest("Name parameter is required.");
+                return BadRequest(new ApiResponseNoData(false, 400, "Name parameter is required."));
             }
             if (student == null)
             {
-                return NotFound($"Student with name {name} not found.");
+                return NotFound(new ApiResponseNoData(false, 404, $"Student with name {name} not found."));
             }
 
-            return Ok(student);
+            return Ok(new ApiResponse(true, 200, "Student found.", student));
         }
 
         [HttpDelete("{id:int}", Name = "DeleteStudentById")]
@@ -72,21 +73,21 @@ namespace StudentReg.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult<bool> DeleteStudent(int id)
+        public ActionResult<ApiResponseNoData> DeleteStudent(int id)
         {
             if (id <= 0)
             {   // bad 400 Client Error
-                return BadRequest("Invalid student ID.");
+                return BadRequest(new ApiResponseNoData(false, 400, "Invalid student ID."));
             }
             if (!db.Student.Any(n => n.Id == id))
             {   // Not Found 404 Client Error
-                return NotFound($"Student with ID {id} not found.");
+                return NotFound(new ApiResponseNoData(false, 404, $"Student with ID {id} not found."));
             }
             var student = db.Student.Where(n => n.Id == id).FirstOrDefault();
 
             db.Student.Remove(student);
             db.SaveChanges();
-            return Ok(true);
+            return Ok(new ApiResponseNoData(true, 200, "Student deleted successfully."));
         }
 
         [HttpPut]
@@ -99,13 +100,13 @@ namespace StudentReg.Controllers
         {
             if (model == null || id != model.Id)
             {
-                return BadRequest("Invalid student data.");
+                return BadRequest(new ApiResponseNoData(false, 400, "Invalid student data or ID mismatch."));
             }
 
             var existingStudent = db.Student.FirstOrDefault(n => n.Id == id);
             if (existingStudent == null)
             {
-                return NotFound($"Student with ID {id} not found.");
+                return NotFound(new ApiResponseNoData(false, 404, $"Student with ID {id} not found."));
             }
 
             existingStudent.Name = model.Name;
@@ -121,37 +122,36 @@ namespace StudentReg.Controllers
         }
 
         [HttpPatch]
-[Route("Update/{id}")]
-[ProducesResponseType(StatusCodes.Status204NoContent)]
-[ProducesResponseType(StatusCodes.Status400BadRequest)]
-[ProducesResponseType(StatusCodes.Status404NotFound)]
-[ProducesResponseType(StatusCodes.Status500InternalServerError)]
-public IActionResult UpdatePartial(int id, [FromBody] JsonPatchDocument<Student> patchDocument)
-{
-    if (patchDocument == null || id <= 0)
-    {
-        return BadRequest("Invalid patch document.");
-    }
+        [Route("Update/{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public IActionResult UpdatePartial(int id, [FromBody] JsonPatchDocument<Student> patchDocument)
+        {
+            if (patchDocument == null || id <= 0)
+            {
+                return BadRequest(new ApiResponseNoData(false, 400, "Invalid patch document."));
+            }
 
-    var existingStudent = db.Student.FirstOrDefault(n => n.Id == id);
-    if (existingStudent == null)
-    {
-        return NotFound($"Student with ID {id} not found.");
-    }
+            var existingStudent = db.Student.FirstOrDefault(n => n.Id == id);
+            if (existingStudent == null)
+            {
+                return NotFound(new ApiResponseNoData(false, 404, $"Student with ID {id} not found."));
+            }
 
-    // ✅ Apply patch directly to the tracked entity
-    patchDocument.ApplyTo(existingStudent, ModelState);
+            // ✅ Apply patch directly to the tracked entity
+            patchDocument.ApplyTo(existingStudent, ModelState);
 
-    if (!ModelState.IsValid)
-    {
-        return BadRequest(ModelState);
-    }
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-    // ✅ Save changes to database
-    db.SaveChanges();
-
-    return NoContent();
-}
+            // ✅ Save changes to database
+            db.SaveChanges();
+            return NoContent();
+        }
 
 
         [HttpPost]
@@ -159,13 +159,11 @@ public IActionResult UpdatePartial(int id, [FromBody] JsonPatchDocument<Student>
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public string CreateStudent([FromBody] Student model)
+        public IActionResult CreateStudent([FromBody] Student model)
         {
-            string result = string.Empty;
             if (model == null)
             {
-                 result = "Invalid student data.";
-                return result;
+                return BadRequest(new ApiResponseNoData(false, 400, "Invalid student data."));
             }
 
             var student = new Student
@@ -182,12 +180,11 @@ public IActionResult UpdatePartial(int id, [FromBody] JsonPatchDocument<Student>
             db.Student.Add(student);
             model.Id = student.Id;
             int res = db.SaveChanges();
-            if (res >0) {
-               result = "Student created successfully."; 
+            if (res > 0) {
+               return CreatedAtAction(nameof(GetStudentById), new { id = student.Id }, new ApiResponseNoData(true, 201, "Student created successfully."));
             }else{
-               result = "Failed to create student.";
+               return StatusCode(500, new ApiResponseNoData(false, 500, "Failed to create student."));
             }
-            return result;
         }
     }
 }
