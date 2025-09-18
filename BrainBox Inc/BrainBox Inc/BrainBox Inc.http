@@ -1,0 +1,6 @@
+@BrainBox_Inc_HostAddress = http://localhost:5080
+
+GET {{BrainBox_Inc_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

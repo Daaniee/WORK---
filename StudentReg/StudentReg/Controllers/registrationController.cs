@@ -96,7 +96,7 @@ namespace StudentReg.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public ActionResult UpdateStudent(int id, [FromBody] Student model)
+        public IActionResult UpdateStudent(int id, [FromBody] Student model)
         {
             if (model == null || id != model.Id)
             {
