@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BrainboxInc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b6ce99b92950f5cf28e7beba752be485a491ae1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b17ac392b77dd3f0a10741034cd7567ae065028")]
 [assembly: System.Reflection.AssemblyProductAttribute("BrainboxInc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BrainboxInc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -9,5 +9,6 @@ namespace BrainboxInc.Models
 
         public DbSet<Item> Items { get; set; }
         public DbSet<Cart> Cart { get; set; }
+        public DbSet<Users> Users { get; set; }
     }
 }
